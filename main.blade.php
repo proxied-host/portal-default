@@ -45,7 +45,7 @@
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
             <img
                 src="@settings('portal::default::header_image', 'https://www.freepnglogos.com/uploads/minecraft-png/download-minecraft-characters-png-png-image-pngimg-29.png')"
-                alt="mockup">
+                alt="{!! __('mockup') !!}">
         </div>
     </div>
 </section>
