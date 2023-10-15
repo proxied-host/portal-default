@@ -5,8 +5,8 @@
         <div class="form-group col-6">
             <label for="language">{!! __('client.portal_redirect') !!}</label>
             <select class="form-control select2 select2-hidden-accessible" name="portal::is_redirect" tabindex="-1" aria-hidden="true">
-                <option value="0" @if(settings('portal::is_redirect', false)) selected @endif>false</option>
-                <option value="1" @if(settings('portal::is_redirect', false)) selected @endif>true</option>
+                <option value="0" @if(settings('portal::is_redirect', false)) selected @endif>{{ __('client.false') }}</option>
+                <option value="1" @if(settings('portal::is_redirect', false)) selected @endif>{{ __('client.true') }}</option>
             </select>
         </div>
 
