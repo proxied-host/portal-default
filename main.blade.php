@@ -208,6 +208,8 @@
                         </div>
                         <!-- List -->
                         <ul role="list" class="mb-8 space-y-4 text-left">
+                            <img class="w-full h-auto" src="{{ asset('storage/products/' . $package->icon) }}"
+                                 alt="icon"/>
                             <div class="grid grid-cols-1 gap-4">
                                 @foreach($package->features()->orderBy('order', 'desc')->get() as $feature)
                                 <li class="flex items-center space-x-3">
