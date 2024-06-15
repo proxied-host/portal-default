@@ -53,11 +53,10 @@
         <div class="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-8 lg:py-16 xl:gap-0">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <h1 class="mb-4 max-w-2xl text-4xl font-extrabold leading-none dark:text-white md:text-5xl xl:text-6xl">
-                    @settings('portal::title', 'Minecraft Server Hosting')
+                    @settings('portal::title', 'proxied.host')
                 </h1>
                 <p class="mb-6 max-w-2xl font-light text-gray-500 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">
-                    @settings('portal::description', 'Start your Minecraft server today for as low as $1/GB and be equiped for all
-                    situations with our high performance gear keeping your servers running 24/7')
+                    @settings('portal::description', 'Welcome to proxied.host, your one-stop-shop for high-performance Minecraft servers and Discord bots.')
                 </p>
                 <a href="#pricing"
                     class="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:focus:ring-primary-900 mr-3 inline-flex items-center justify-center rounded-lg px-5 py-3 text-center text-base font-medium text-white focus:ring-4">
@@ -80,43 +79,6 @@
         </div>
     </section>
 
-    <section class="bg-white dark:bg-gray-900">
-        <div class="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
-            <h2
-                class="mb-8 text-center text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl lg:mb-16">
-                {!! __('client.host_favorite_games') !!}</h2>
-            <div class="grid grid-cols-2 gap-8 text-gray-500 dark:text-gray-400 sm:gap-12 md:grid-cols-3 lg:grid-cols-3">
-                <a href="#" class="flex items-center justify-center">
-                    <img src="https://licenses.wemx.net/img/services/rust.png" class="hover:text-gray-900 dark:hover:text-white"
-                        style="height: 60px;" />
-                    <h2
-                        class="ml-4 text-center text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white md:text-3xl">
-                        {!! __('client.rust') !!}
-                    </h2>
-                </a>
-
-                <a href="#" class="flex items-center justify-center">
-                    <img src="https://licenses.wemx.net/img/services/minecraft.png" class="hover:text-gray-900 dark:hover:text-white"
-                        style="height: 60px;" />
-                    <h2
-                        class="ml-4 text-center text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white md:text-3xl">
-                        {!! __('client.minecraft') !!}
-                    </h2>
-                </a>
-
-                <a href="#" class="flex items-center justify-center">
-                    <img src="https://licenses.wemx.net/img/services/ark.png" class="hover:text-gray-900 dark:hover:text-white"
-                        style="height: 60px;" />
-                    <h2
-                        class="ml-4 text-center text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white md:text-3xl">
-                        {!! __('client.ack') !!}
-                    </h2>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
     <section id="features" class="bg-gray-50 dark:bg-gray-800">
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6">
             <div class="mb-8 max-w-screen-md lg:mb-16">
@@ -125,7 +87,7 @@
                     {!! __('client.our_game_anel_desc', ['app' => settings('app_name', 'WemX')]) !!}
                 </p>
             </div>
-            <div class="space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3">
+            <div class="space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3 items-center">
                 <div>
                     <div
                         class="bg-primary-100 dark:bg-primary-900 mb-4 flex h-10 w-10 items-center justify-center rounded-full lg:h-12 lg:w-12">
@@ -136,19 +98,6 @@
                     <h3 class="mb-2 text-xl font-bold dark:text-white">{!! __('client.file_manager') !!}</h3>
                     <p class="text-gray-500 dark:text-gray-400">
                         {!! __('client.file_manager_desc') !!}
-                    </p>
-                </div>
-
-                <div>
-                    <div
-                        class="bg-primary-100 dark:bg-primary-900 mb-4 flex h-10 w-10 items-center justify-center rounded-full lg:h-12 lg:w-12">
-                        <div class="text-primary-600 dark:text-primary-300 text-2xl">
-                            <i class="bx bxs-plug"></i>
-                        </div>
-                    </div>
-                    <h3 class="mb-2 text-xl font-bold dark:text-white">{!! __('client.plugins_manager') !!}</h3>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        {!! __('client.plugins_manager_desc') !!}
                     </p>
                 </div>
 
@@ -347,36 +296,6 @@
                     </a>
                 </div>
                 <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
-                    <div>
-                        <h2 class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">{!! __('client.resources') !!}</h2>
-                        <ul class="text-gray-600 dark:text-gray-400">
-                            @foreach (Page::getActive() as $page)
-                                @if (in_array('footer_resources', $page->placement))
-                                    <li class="mb-4">
-                                        <a href="{{ route('page', $page->path) }}"
-                                            @if ($page->new_tab) target="_blank" @endif class="hover:underline">
-                                            {{ $page->name }}
-                                        </a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">{!! __('client.help_center') !!}</h2>
-                        <ul class="text-gray-600 dark:text-gray-400">
-                            @foreach (Page::getActive() as $page)
-                                @if (in_array('footer_help_center', $page->placement))
-                                    <li class="mb-4">
-                                        <a href="{{ route('page', $page->path) }}"
-                                            @if ($page->new_tab) target="_blank" @endif class="hover:underline">
-                                            {{ $page->name }}
-                                        </a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </div>
                     <div>
                         <h2 class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">{!! __('client.legal') !!}</h2>
                         <ul class="text-gray-600 dark:text-gray-400">
